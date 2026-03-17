@@ -1,0 +1,47 @@
+
+services:  # ← c'est obligatoire
+  oracle-db:
+    image: gvenzl/oracle-xe:latest
+    platform: linux/amd64
+    container_name: oracle-db
+    ports:
+      - "1521:1521"
+      - "5500:5500"
+    environment:
+      ORACLE_PASSWORD: Oracle123
+      ORACLE_CHARACTERSET: AL32UTF8
+    volumes:
+      - ../oracle:/opt/oracle/oradata
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5500/em"]
+      interval: 30s
+      retries: 10
+
+  postgres-db:
+    image: postgres:16
+    container_name: postgres-db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: pguser
+      POSTGRES_PASSWORD: pgpassword
+      POSTGRES_DB: pgdb
+    volumes:
+      - ../postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "pguser"]
+      interval: 30s
+      retries: 10
+
+  redis:
+    image: redis:8
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ../redis:/data
+    command: ["redis-server", "--appendonly", "yes"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      retries: 5

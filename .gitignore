@@ -1,0 +1,18 @@
+# GoldenGate binaries (très lourds)
+ggs_Linux_x64_MySQL_services_shiphome/
+
+# Archives
+*.zip
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+
+# Java
+*.jar
+*/lib/modules
+
+# Temp
+*.tmp
