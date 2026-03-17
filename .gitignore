@@ -1,18 +1,35 @@
-# GoldenGate binaries (très lourds)
-ggs_Linux_x64_MySQL_services_shiphome/
-
-# Archives
-*.zip
-
-# Logs
+# === Logs and temporary files ===
 *.log
+*.tmp
+*.bak
 
-# OS
+# === Archives and binaries ===
+*.zip
+*.tar.gz
+*.tgz
+*.bin
+
+# === Runtime directories and files ===
+/oracle/XE/*
+/postgres/*
+/redis/*
+/opt/ogg/
+/deployments/
+/jdk/
+
+# === Local sensitive configuration files ===
+*.rsp
+*.ora
+*.ctl
+*.dbf
+*.pid
+
+# === Operating system files ===
 .DS_Store
 
-# Java
+# === Java modules ===
 *.jar
 */lib/modules
 
-# Temp
-*.tmp
+# === GoldenGate specific files ===
+goldengate/ggs_Linux_x64_MySQL_services_shiphome/
