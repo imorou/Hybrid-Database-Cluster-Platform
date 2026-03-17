@@ -1,0 +1,31 @@
+# Logs et fichiers temporaires
+*.log
+*.tmp
+*.bak
+
+# Archives et binaires
+*.zip
+*.tar.gz
+*.tgz
+*.bin
+
+# Répertoires de déploiement locaux
+/opt/ogg/
+/deployments/
+/jdk/
+
+# Fichiers de configuration locaux sensibles
+*.rsp
+
+# Oracle / GoldenGate binaries
+ggs_Linux_x64_MySQL_services_shiphome/
+
+# Java modules
+*.jar
+*/lib/modules
+
+# Logs
+*.log
+
+# Mac
+.DS_Store
